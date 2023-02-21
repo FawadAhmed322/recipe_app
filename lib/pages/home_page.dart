@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:recipe_app/pages/add_recipe_page.dart';
 import 'login_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -50,9 +51,24 @@ class _HomePageState extends State<HomePage> {
         title: Text('Home'),
       ),
       body: Center(
-        child: Text(
-          'Home',
-          style: TextStyle(fontSize: 24.0),
+        child: Column(
+          children: [
+            Text(
+              'Home',
+              style: TextStyle(fontSize: 24.0),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddRecipePage(),
+                  ),
+                );
+              },
+              child: Text('Add Recipe'),
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
